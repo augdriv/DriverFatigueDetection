@@ -89,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
             verifyPermissions(this);
         }
 
-        setupUI();
+        startActivity(new Intent(MainActivity.this, CameraActivity.class));
+//        setupUI();
     }
 
     protected void setupUI() {
