@@ -27,10 +27,12 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.media.AudioManager;
 import android.media.Image;
 import android.media.Image.Plane;
 import android.media.ImageReader;
 import android.media.ImageReader.OnImageAvailableListener;
+import android.media.SoundPool;
 import android.os.Handler;
 import android.os.Trace;
 import android.util.Log;
@@ -49,6 +51,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+
+import static android.content.Context.AUDIO_SERVICE;
 
 /**
  * Class that takes in preview frames and converts the image to Bitmaps to process with dlib lib.
@@ -77,6 +81,9 @@ public class OnGetImageListener implements OnImageAvailableListener {
     private FloatingCameraWindow mWindow;
     private Paint mFaceLandmardkPaint;
 
+    private SoundPool mSoundPool; // 경고음 출력을 위한 오디오 매니저
+    private int mSoundFile; // 경고음 파일
+
     public void initialize(
             final Context context,
             final AssetManager assetManager,
@@ -92,6 +99,9 @@ public class OnGetImageListener implements OnImageAvailableListener {
         mFaceLandmardkPaint.setColor(Color.GREEN);
         mFaceLandmardkPaint.setStrokeWidth(2);
         mFaceLandmardkPaint.setStyle(Paint.Style.STROKE);
+
+        mSoundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 1);
+        mSoundFile = mSoundPool.load(CameraActivity.getContext(), R.raw.alarm, 1);
     }
 
     public void deInitialize() {
@@ -117,7 +127,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
         Log.d(TAG, String.format("screen size (%d,%d)", screen_width, screen_height));
         if (screen_width < screen_height) {
             orientation = Configuration.ORIENTATION_PORTRAIT;
-            mScreenRotation = 90;
+            mScreenRotation = 270;
         } else {
             orientation = Configuration.ORIENTATION_LANDSCAPE;
             mScreenRotation = 0;
