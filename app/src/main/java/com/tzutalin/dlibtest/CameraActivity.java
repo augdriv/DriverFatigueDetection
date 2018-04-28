@@ -17,7 +17,6 @@
 package com.tzutalin.dlibtest;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -32,7 +31,6 @@ import android.widget.Toast;
 public class CameraActivity extends Activity {
 
     private static int OVERLAY_PERMISSION_REQ_CODE = 1;
-    private static Context mContext;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -40,7 +38,6 @@ public class CameraActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         setContentView(R.layout.activity_camera);
-        mContext = getApplicationContext();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this.getApplicationContext())) {
@@ -70,9 +67,5 @@ public class CameraActivity extends Activity {
                 }
             }
         }
-    }
-
-    public static Context getContext() {
-        return mContext;
     }
 }

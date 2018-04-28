@@ -1,4 +1,3 @@
-/*
 package com.uholee.sleepdetection;
 
 import android.content.Context;
@@ -24,7 +23,6 @@ import com.tzutalin.dlibtest.CameraActivity;
 import com.tzutalin.dlibtest.FileUtils;
 import com.tzutalin.dlibtest.FloatingCameraWindow;
 import com.tzutalin.dlibtest.ImageUtils;
-import com.tzutalin.dlibtest.OnGetImageListener;
 import com.tzutalin.dlibtest.R;
 import com.tzutalin.dlibtest.TrasparentTitleView;
 
@@ -32,11 +30,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-*/
 /**
  * Created by uhole on 2018-04-28.
- *//*
-
+ */
 
 public class OnGetImageListenerForCar implements ImageReader.OnImageAvailableListener {
     private static final boolean SAVE_PREVIEW_BITMAP = false;
@@ -82,7 +78,7 @@ public class OnGetImageListenerForCar implements ImageReader.OnImageAvailableLis
         mFaceLandmardkPaint.setStyle(Paint.Style.STROKE);
 
         mSoundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 1);
-        mSoundFile = mSoundPool.load(CameraActivity.getContext(), R.raw.alarm, 1);
+        mSoundFile = mSoundPool.load(mContext, R.raw.alarm, 1);
     }
 
     public void deInitialize() {
@@ -225,4 +221,3 @@ public class OnGetImageListenerForCar implements ImageReader.OnImageAvailableLis
         Trace.endSection();
     }
 }
-*/
