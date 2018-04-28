@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public class SleepDetectionUtils {
-    private static SleepDetectionUtils mObject;
+    private static SleepDetectionUtils mObject = new SleepDetectionUtils();
 
     public static boolean checkSleep(ArrayList<Point> face) {
         return mObject.checkSleep_method(face);
