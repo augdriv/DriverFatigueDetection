@@ -8,8 +8,8 @@ import java.util.ArrayList;
  * Created by uhole on 2018-04-28.
  */
 
-public class SleepDetection {
-    private static SleepDetection mObject;
+public class SleepDetectionUtils {
+    private static SleepDetectionUtils mObject;
 
     public static boolean checkSleep(ArrayList<Point> face) {
         return mObject.checkSleep_method(face);

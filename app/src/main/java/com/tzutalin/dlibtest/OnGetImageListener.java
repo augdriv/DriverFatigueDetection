@@ -42,18 +42,13 @@ import android.view.WindowManager;
 import com.tzutalin.dlib.Constants;
 import com.tzutalin.dlib.FaceDet;
 import com.tzutalin.dlib.VisionDetRet;
-import com.uholee.sleepdetection.SleepDetection;
+import com.uholee.sleepdetection.SleepDetectionUtils;
 
 import junit.framework.Assert;
-
-import org.opencv.engine.OpenCVEngineInterface;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
-
-import static android.content.Context.AUDIO_SERVICE;
 
 /**
  * Class that takes in preview frames and converts the image to Bitmaps to process with dlib lib.
@@ -261,7 +256,7 @@ public class OnGetImageListener implements OnImageAvailableListener {
 
                                 // Draw landmark
                                 ArrayList<Point> landmarks = ret.getFaceLandmarks();
-                                if (SleepDetection.checkSleep(landmarks)) {
+                                if (SleepDetectionUtils.checkSleep(landmarks)) {
                                     mFaceLandmardkPaint.setColor(Color.RED);
                                     Log.d("SLEEPDETECTION", "true");
                                 }
