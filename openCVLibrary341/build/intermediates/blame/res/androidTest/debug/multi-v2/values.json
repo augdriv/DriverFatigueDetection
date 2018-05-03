@@ -1,7 +1,15 @@
 {
     "logs": [
         {
+            "outputFile": "C:\\Users\\uhole\\Documents\\workspace\\DriverFatigueDetection\\openCVLibrary341\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+            "map": []
+        },
+        {
             "outputFile": "C:\\Users\\uhole\\Documents\\workspace\\dlib-android-app-master\\openCVLibrary341\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+            "map": []
+        },
+        {
+            "outputFile": "C:\\Users\\uhole\\Documents\\workspace\\DriverFatigueDetection\\openCVLibrary341\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
             "map": []
         },
         {
